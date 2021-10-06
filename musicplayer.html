@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="musiC.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2|Bree+Serif&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="main_div">
+        <div class="music_container">
+            <h2 id="Title">AWESOME MORA</h2>
+            <h3 id="Artist">Meet Bros</h3>
+            <div class="img_container">
+                <img src="images/Awesome Mora.jpeg" alt = "poppat">
+            </div>
+            <audio src="music/Awesome Mora.mp3" ></audio>
+            <!--controls-->
+            <div class="music_controls">
+                <i class="fa fa-backward" id="prev" title="Previous"></i>
+                <i class="fa fa-play main_button" id="play" title="Play"></i>
+                <i class="fa fa-forward" id="next" title="Next"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        const music = document.querySelector("audio"); 
+        const img = document.querySelector("img");
+        const play = document.getElementById("play");
+        const Artist = document.getElementById("Artist");
+        const Title = document.getElementById("Title");
+        const prev = document.getElementById("prev");
+        const next = document.getElementById("next");
+
+        const songs = [ 
+        {
+            Title: "Awesome Mora",
+            Artist: " Meet Bros ",
+        },
+        {
+            Title: "Ishq Bulavaa",
+            Artist: " Vishal-Shekhar ",
+        },
+        {
+            Title: "Hawayein",
+            Artist: " Arijit Singh",
+        },
+        {
+            Title: "Shape of You",
+            Artist: " Ed Sheeran ",
+        },
+        {
+            
+            Title: "Khuda Hafiz",
+            Artist: " Mithoon ",
+        },
+        {
+            
+            Title: "Sorry",
+            Artist: " Justin Bieber ",
+
+        },
+        {
+            Title: "Satisfya",
+            Artist: " Imran Khan ",
+        },
+        {
+            Title: "Bad Boy X Bad Girl",
+            Artist: " Badshah ",
+        },
+        {
+            Title: "Safar",
+            Artist: " Mohit Chauhan ",
+        },
+        {
+            Title: "So High",
+            Artist: " Moosewala ",
+        },
+        {
+            Title: "Sanam Re",
+            Artist: " Amaal Malik  ",
+        },
+        {
+            Title: "Kamli",
+            Artist: " Pritam ",
+        },
+        {
+            Title: "Bad Boy",
+            Artist: " Badshah ",
+        }, 
+        {
+            Title: "Filhall",
+            Artist: " B Praak ",
+        }, 
+        {
+            Title: "Jab Tak Hai Jaan",
+            Artist: " Khan ",
+        },   
+        {
+            Title: "Yaad Piya Ki",
+            Artist: " Neha Kakkar ",
+        },
+    ];
+        
+        let isPlaying = false;
+
+        const playMusic = () => {
+            isPlaying = true;
+            music.play();
+            play.classList.replace("fa-play", "fa-pause");  
+            img.classList.add("anime");
+        };
+        const pauseMusic = () => {
+            isPlaying = false;
+            music.pause();
+            play.classList.replace("fa-pause", "fa-play");  
+            img.classList.remove("anime");
+        };
+
+        play.addEventListener("click", () => {
+           // if(isPlaying){
+           //     pauseMusic();
+           // }else
+            //  playMusic();
+           //}
+          isPlaying ? pauseMusic() : playMusic();
+            });
+             
+             // changing songs
+        const loadSong = (songs) => {
+            Title.textContent = songs.Title;
+            Artist.textContent = songs.Artist;
+            music.src= "music/" + songs.Title + ".mp3";
+            img.src= "images/" + songs.Title + ".jpeg";
+        };
+        songIndex = 0;
+        loadSong(songs[0]);
+        const nextSong = () => {
+            songIndex= (songIndex+1) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        };
+        
+        const prevSong = () => {
+            songIndex = (songIndex - 1 +songs.length) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+             
+        };
+        next.addEventListener("click", nextSong);
+        prev.addEventListener("click", prevSong);
+
+        
+    </script>
+</body>
+</html>

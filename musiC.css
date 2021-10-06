@@ -1,0 +1,103 @@
+*,
+*::before
+*::after{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+.main_div{
+    width: 97vw;
+    height: 90vh;
+    background: color #f6f6f6;
+    display: grid;
+    place-items: center;
+}
+.music_container{
+    margin-top: 30px;
+    width: 28rem;
+    height: 50rem;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    box-shadow: 0 1.2rem 3rem 0.5rem rgba(0,0,0,0.2);
+    padding: 3rem;
+    text-align: center;
+}
+.music_container #Title{
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.5rem;
+    color: blueviolet;
+    margin: 2rem 0 0.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0 0.3rem  0.5rem rgba(0,0,0,0.3);
+}
+.music_container #Artist{
+    text-transform: capitalise;
+    letter-spacing: 0.1rem;
+    color: rgb(109, 8, 75);
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 4rem;
+  
+}
+.img_container{
+    width: 25rem;
+    height: 25rem;
+    margin: auto;
+}
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 1.3rem 3rem 0.5rem rgba(0,0,0,0.4);
+}
+.music_controls{
+    width: 17rem;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+    margin-top: 5rem;
+}
+.music_controls.fa{
+    color: #111;
+    font-size: 2rem;
+    cursor: pointer;
+    filter: drop-shadow(0 1.2rem 3rem 0.5rem rgba(0,0,0,0.4));
+}
+.music_controls .main_button{
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: rgb(15, 8, 8);
+    color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+.music_controls .fa:hover{
+    color: rgb(173, 25, 25);
+}
+.music_controls .fa-play:hover{
+    background-color: honeydew;
+    color: indigo;
+    box-shadow: 0 1rem 2rem 0.2rem rgba(241, 0, 0, 0.4);
+
+}
+.anime {
+    animation: rotatePlayer 3s linear infinite;
+}
+@keyframes rotatePlayer {
+    from {transform: rotate(0deg);
+     }  to {
+             transform: rotate(360deg); 
+     }
+}
